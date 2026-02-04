@@ -2,12 +2,9 @@ package com.example.demo.Service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.demo.Entity.LeaveApplication;
 import com.example.demo.Entity.LeaveBalance;
-import com.example.demo.Repo.LeaveApplicationRepo;
 import com.example.demo.Repo.LeaveBalanceRepo;
 
 @Service
@@ -35,5 +32,9 @@ public class LeaveBalanceService {
 
     public void deleteBalance(Long id) {
         leaveBalanceRepository.deleteById(id);
+    }
+    
+    public List<LeaveBalance> getLeaveTracker(Long employeeId) {
+        return leaveBalanceRepository.findByEmployeeId(employeeId);
     }
 }
